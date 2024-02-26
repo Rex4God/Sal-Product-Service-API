@@ -17,7 +17,7 @@ describe("POST /v1/products/create-product", () => {
       .post("/v1/products/create-product")
       .send({
         merchantId:"precious5656",
-        productId: 1,
+        productId: "6789-bcdc-8907",
         sku_id: "carswift123567",
         name: "car",
         description: "A wonderful car",
@@ -34,7 +34,7 @@ describe("POST /v1/products/create-product", () => {
 describe('GET /v1/products/:merchantId/products', () => {
   test('It should retrieve product details using merchantId', async () => {
     const sampleProduct = {
-      productId: 1,
+      productId: "6789-bcdc-8907",
       sku_id: "carswift123567",
       name: "car",
       description: "A wonderful car",
@@ -45,7 +45,7 @@ describe('GET /v1/products/:merchantId/products', () => {
 
     ProductService.prototype.getAllProductsByMerchant.mockResolvedValue(sampleProduct);
 
-    const productDetail = await ProductService.prototype.getAllProductsByMerchant(1);
+    const productDetail = await ProductService.prototype.getAllProductsByMerchant("precious5656");
 
     expect(productDetail).toEqual(sampleProduct);
   });
